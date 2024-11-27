@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+p,
+ul,
+ol,
+hr {
+  margin: 0;
+}
+.young-serif-regular {
+  font-family: "Young Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.outfit-regular {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.outfit-semibold {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+.outfit-bold {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.heading-l {
+  color: #312e2c;
+  font-size: 40px;
+  line-height: 100%;
+}
+.body-reg {
+  color: #5f564d;
+  font-size: 16px;
+  line-height: 150%;
+}
+.heading-s {
+  color: #7a284e;
+  font-size: 20px;
+  line-height: 100%;
+}
+.heading-m {
+  color: #854632;
+  font-size: 28px;
+  line-height: 100%;
+}
+body {
+  background-color: #f3e5d7;
+  padding: 125px 0;
+}
+ul,
+ol {
+  padding-left: 28px;
+}
+li {
+  padding-left: 22px;
+  margin-bottom: 8px;
+}
+main {
+  max-width: 736px;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+h1 {
+  margin-bottom: 24px;
+}
+h2 {
+  margin-bottom: 24px;
+}
+section:not(:last-child) {
+  margin-bottom: 32px;
+}
+section:last-child p {
+  margin-bottom: 24px;
+}
+section li::marker {
+  color: #854632;
+}
+.bg-pink {
+  background-color: #fff7fb;
+  padding: 28px;
+  border-radius: 12px;
+}
+.bg-pink h2 {
+  margin-bottom: 16px;
+}
+.bg-pink li::marker {
+  color: #7a284e;
+}
+hr {
+  margin-bottom: 32px;
+  border-color: #e3ddd7;
+}
+
+table {
+  /* background: #ca2424; */
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  /* background: #17b514; */
+  text-align: left;
+  padding-left: 32px;
+}
+td {
+  /* background: #cbb719; */
+  color: #854632;
+}
+
+th,
+td {
+  width: 50%;
+  padding-top: 12px;
+}
+
+tr:not(:last-child) th,
+tr:not(:last-child) td {
+  border-bottom: 1px solid #e3ddd7;
+  padding-bottom: 12px;
+}
+
+
+

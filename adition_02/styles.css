@@ -1,0 +1,84 @@
+/* body{} 
+header{} 
+img{} 
+main{} 
+section{} 
+h1{} 
+p{} 
+hr{} 
+a{}
+a:hover{} 
+footer{}  */
+
+body {
+  /* Стилі для тіла документа можуть бути тут */
+  background: #000;
+  color: antiquewhite;
+
+  header {
+    /* Стилі для заголовка */
+    max-width: 1110px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    img {
+      /* Стилі для зображення */
+      border-radius: 50%;
+      width: 20%;
+    }
+  }
+  hr {
+    /* Стилі для розділювача */
+    max-width: 1110px;
+    margin-bottom: 20px;
+  }
+  main {
+    /* Стилі для головної частини сторінки */
+    max-width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+    section {
+      /* Стилі для секції */
+      background-color: rgb(31, 31, 28);
+      padding: 20px;
+      h1 {
+        /* Стилі для заголовку першого рівня */
+        text-transform: uppercase;
+        font-size: 48px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      p {
+        /* Стилі для параграфу */
+        font-size: 18px;
+        line-height: 24px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: justify;
+        a {
+          /* Стилі для гіперпосилання */
+          text-transform: uppercase;
+          text-decoration: none;
+          color: inherit;
+          font-weight: 900;
+          transition: color 0.5s ease-in-out;
+          &:hover {
+            /* Стилі для стану hover посилання */
+            color: rgb(124, 215, 240);
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    /* Стилі для футера */
+    max-width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
+    p {
+      /* Стилі для параграфу в футері */
+      font-size: 24px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  }
+}

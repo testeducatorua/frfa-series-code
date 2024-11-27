@@ -1,0 +1,64 @@
+/* Стилізує всі абзаци <p> */
+p {
+  /* color: blue; */
+}
+/* Стилізує всі елементи з класом .highlight */
+/* .highlight {
+  background-color: yellow;
+  color: black;
+} */
+/* Стилізує всі <p> з класом .highlight */
+/* p.highlight {
+  color: red;
+} */
+
+/* Стилізує всі елементи з атрибутом title */
+/* [title] {
+  text-decoration: none;
+  background-color: #d81dc2;
+} */
+/* a[title] {
+  text-decoration: none;
+  background-color: #d81dc2;
+} */
+
+/* Стилізує всі <input> з типом "text" */
+/* [type="text"] {
+  border: 1px solid #de0e0e;
+} */
+
+/* Стилізує всі <span> всередині <div> */
+/* div span {
+  color: green;
+}
+div > span {
+  color: rgb(165, 113, 17);
+} */
+
+
+/* Стилізує посилання при наведенні */
+/* a:hover {
+    color: rgb(13, 120, 36);
+  } */
+  
+  /* Стилізує перший дочірній елемент <li> */
+  /* li:first-child {
+    font-weight: bold;
+  } */
+
+  /* Стилізує першу літеру абзацу */
+/* p::first-letter {
+    font-size: 2em;
+    color: red;
+  } */
+  
+  /* Стилізує перед вмістом елемента */
+  /* p::before {
+    content: "Note: ";
+    font-weight: bold;
+  } */
+
+  /* Стилізує <input> з типом "text" при фокусі */
+/* input[type="text"]:focus {
+    color: brown;
+  } */
