@@ -1,13 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- <audio controls muted title="Музичний трек Ersatz Bossa від John Deley">
+    <source
+      src="./media/Ersatz-Bossa-(Sting)-John-Deley-and-the-41-Players.mp3" />
+    Ваш браузер не підтримує аудіо тег.
+  </audio> -->
+    <!-- 
+  <video width="960" height="540" controls title="Дрон над коаліновим кар'єром" poster="./media/img.png">
+    <source src="./media/videoplayback.mp4" type="video/mp4" />
+    Ваш браузер не підтримує відео тег.
+  </video> -->
+
+    <!-- <video width="960" height="540" controls title="Дрон над коаліновим кар'єром">
+    <source src="./media/videoplayback.mp4" type="video/mp4" />
+    <track src="./media/subtitles.vtt" kind="subtitles" srclang="uk" label="Українська" />
+    <track src="./media/subtitles-en.vtt" kind="subtitles" srclang="en" label="English" />
+    Ваш браузер не підтримує відео тег.
+  </video> -->
+
+    <!-- <div>
+    <video width="960" height="540" controls title="Дрон над коаліновим кар'єром" id="drone-video">
+      <source src="./media/videoplayback.mp4" type="video/mp4" />
+      <track src="./media/subtitles.vtt" kind="subtitles" srclang="uk" label="Українська" />
+      <track src="./media/subtitles-en.vtt" kind="subtitles" srclang="en" label="English" />
+      Ваш браузер не підтримує відео тег.
+    </video>
+    <audio id="background-audio" style="display: none;">
+      <source src="./media/Ersatz-Bossa-(Sting)-John-Deley-and-the-41-Players.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
   
-  <script src="./script.js"></script>
-</body>
+  <script>
+    const video = document.getElementById('drone-video');
+    const audio = document.getElementById('background-audio');
+  
+    video.addEventListener('play', () => {
+      audio.currentTime = video.currentTime;
+      audio.play();
+    });
+  
+    video.addEventListener('pause', () => {
+      audio.pause();
+    });
+  
+    video.addEventListener('seeked', () => {
+      audio.currentTime = video.currentTime;
+    });
+  </script> -->
+
+    <!-- <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/TKBEOq9vTUo?si=B5TENVATo6TFblXa"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe> -->
+    <!-- <div class="box move">Зсув</div>
+    <div class="box spin">Обертання</div>
+    <div class="box grow">Масштаб</div>
+    <div class="box combined">Комбінація</div>
+    <div class="box animated-box">А</div> -->
+    <script src="./script.js"></script>
+  </body>
 </html>

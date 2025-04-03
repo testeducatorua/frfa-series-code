@@ -1,0 +1,83 @@
+.box {
+    width: 100px;
+    height: 100px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out 0.75s;
+  }
+  .move{
+      background-color: blueviolet;
+  }
+  .spin{
+      background-color: rgb(6, 95, 65);
+  }
+  .grow{
+      background-color: rgb(56, 142, 142);
+  }
+  .combined{
+      background-color: black;
+  }
+  .animated-box{
+      background-color: brown;
+  }
+  /* Нова властивість */
+  .move:hover {
+    translate: 100px 50px;
+  }
+  
+  /* Старий спосіб */
+  .move-old {
+    transform: translate(100px, 50px);
+  }
+
+  /* Нова властивість */
+.spin:hover {
+    rotate: 45deg;
+  }
+  
+  /* Старий спосіб */
+  .spin-old {
+    transform: rotate(45deg);
+  }
+  /* Нова властивість */
+.grow:hover {
+    scale: 1.5;
+  }
+  
+  /* Старий спосіб */
+  .grow-old {
+    transform: scale(1.5);
+  }
+  .combined:hover {
+    /* translate: 100px 0;
+    rotate: 45deg;
+    scale: 1.2; */
+    transform: translate(100px, 0);
+    transform: rotate(45deg) ;
+    transform: scale(1.2);
+  }
+  
+  /* Еквівалент у старому стилі */
+  .combined-old {
+    /* transform: translate(100px, 0) rotate(45deg) scale(1.2); */
+    transform: translate(100px, 0);
+    transform: rotate(45deg) ;
+    transform: scale(1.2);
+  }
+
+  .animated-box {
+    animation: move-and-spin 2s infinite;
+  }
+  
+  @keyframes move-and-spin {
+    to {
+      translate: 200px 0;
+      rotate: 360deg;
+      scale: 1.5;
+    }
+  }
