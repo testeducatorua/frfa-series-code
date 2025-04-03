@@ -50,6 +50,8 @@ bower_components/
 *.ai
 *.sketch
 *.fig
+*.mp3
+*.mp4
 
 # Compiled files
 *.com
