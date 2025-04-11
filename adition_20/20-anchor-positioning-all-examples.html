@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Anchor Positioning</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    h2 {
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+
+    .example-section {
+      margin-bottom: 60px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .demo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 150px;
+      position: relative;
+      margin: 30px 0;
+      padding: 20px;
+      border: 1px dashed #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      overflow: visible;
+    }
+
+    /* Базові стилі для всіх прикладів */
+    .anchor {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .tooltip {
+      background-color: #333;
+      color: white;
+      padding: 8px;
+      border-radius: 4px;
+      width: 180px;
+      font-size: 12px;
+    }
+
+    /* Приклад 1: Створення якоря */
+    .anchor-example {
+      anchor-name: --tooltip-anchor;
+    }
+
+    /* Приклад 2: Прив'язка до якоря */
+    .tooltip-basic {
+      position: absolute;
+      position-anchor: --tooltip-anchor;
+      position-area: self-end;
+      display: block;
+      font-size: 12px;
+    }
+
+    /* Приклад 3: Позиціонування відносно якоря */
+    .tooltip-bottom {
+      position: absolute;
+      position-anchor: --tooltip-anchor;
+      position-area: end start;
+      display: block;
+      font-size: 12px;
+    }
+
+    .tooltip-top {
+      position: absolute;
+      position-anchor: --tooltip-anchor;
+      position-area: start center;
+      display: block;
+      font-size: 12px;
+    }
+    
+    .tooltip-right {
+      position: absolute;
+      position-anchor: --tooltip-anchor;
+      position-area: center end;
+      display: block;
+      font-size: 12px;
+    }
+    
+    .tooltip-left {
+      position: absolute;
+      position-anchor: --tooltip-anchor;
+      position-area: center start;
+      display: block;
+      font-size: 12px;
+    }
+
+    /* Ми видалили цей блок стилів */
+    
+    /* Цей блок стилів було видалено */
+    
+    /* Це правило не потрібне тут, воно визначено вище */
+
+    /* Приклад 5: Комбінування з анімацією */
+    .tooltip-animated {
+      position: absolute;
+      position-anchor: --tooltip-anchor;
+      position-area: end start;
+      
+      /* Анімація появи */
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s, transform 0.5s;
+      transform: translateY(-10px);
+      font-size: 12px;
+      pointer-events: none;
+    }
+
+    .tooltip-animated.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Стилі для навігації та відображення прикладів */
+    .code-block {
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    
+    small {
+      color: #666;
+      font-size: 11px;
+    }
+
+    .code-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .toggle-button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+
+
+    /* Приклад з використанням anchor() та anchor-size() */
+    .button-anchor {
+      anchor-name: --button-anchor;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: absolute;
+      position-anchor: --button-anchor;
+      
+      /* Встановлюємо ширину рівною ширині якоря */
+      width: anchor-size(--button-anchor, width);
+      
+      /* Розміщуємо на 10px нижче якоря */
+      top: calc(anchor(--button-anchor, bottom) + 10px);
+      left: anchor(--button-anchor, left);
+      
+      background-color: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      display: none;
+    }
+
+    .dropdown.show {
+      display: block;
+    }
+
+    .dropdown div {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .dropdown div:hover {
+      background-color: #f0f0f0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Anchor Positioning</h1>
+
+  <div class="example-section">
+    <h2>Основні концепції</h2>
+    <p>В основі технології лежать два ключові поняття:</p>
+    <ul>
+      <li><strong>Якір (Anchor)</strong> - елемент, який слугує точкою відліку</li>
+      <li><strong>Ціль (Target)</strong> - елемент, який позиціонується відносно якоря</li>
+    </ul>
+    
+    <div class="code-block">
+      <div class="code-title">HTML:</div>
+      <pre><code>&lt;button class="anchor"&gt;Показати підказку&lt;/button&gt;
+&lt;div class="tooltip"&gt;Це підказка&lt;/div&gt;</code></pre>
+    </div>
+    
+    <div class="code-block">
+      <div class="code-title">CSS:</div>
+      <pre><code>.anchor {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tooltip {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  width: 200px;
+}</code></pre>
+    </div>
+    
+    <div class="demo-container">
+      <button class="anchor">Базовий елемент</button>
+      <div class="tooltip" style="position: static; margin-left: 20px;">Статична підказка (без anchor positioning)</div>
+    </div>
+  </div>
+
+  <div class="example-section">
+    <h2>Створення якоря</h2>
+    <p>Щоб зробити елемент якорем, використовуємо властивість <code>anchor-name</code>:</p>
+    
+    <div class="code-block">
+      <div class="code-title">CSS:</div>
+      <pre><code>.anchor {
+  /* Призначаємо ім'я якорю, завжди з префіксом -- */
+  anchor-name: --tooltip-anchor;
+}</code></pre>
+    </div>
+    
+    <div class="demo-container">
+      <button class="anchor anchor-example">Якір</button>
+      <p style="margin-left: 20px;">Цей елемент є якорем з <code>anchor-name: --tooltip-anchor</code></p>
+    </div>
+  </div>
+
+  <div class="example-section">
+    <h2>Прив'язка цільового елемента до якоря</h2>
+    <p>Щоб приєднати елемент до якоря, використовуємо властивості <code>position: absolute</code> та <code>position-anchor</code>:</p>
+    
+    <div class="code-block">
+      <div class="code-title">CSS:</div>
+      <pre><code>.tooltip {
+  position: absolute;
+  position-anchor: --tooltip-anchor;
+}</code></pre>
+    </div>
+    
+    <div class="demo-container">
+      <div style="text-align: center; position: relative;">
+        <button class="anchor anchor-example">Якір з підказкою</button>
+        <div class="tooltip tooltip-basic">Ця підказка прив'язана до якоря</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-section">
+    <h2>Позиціонування відносно якоря</h2>
+    <p>Для вказівки місця розташування відносно якоря використовуємо властивість <code>position-area</code>:</p>
+    
+    <div class="code-block">
+      <div class="code-title">CSS:</div>
+      <pre><code>/* Розміщення підказки внизу від кнопки */
+.tooltip {
+  position: absolute;
+  position-anchor: --tooltip-anchor;
+  position-area: end start;
+}
+
+/* Розміщення підказки вгорі від кнопки */
+.tooltip-top {
+  position: absolute;
+  position-anchor: --tooltip-anchor;
+  position-area: start center;
+}
+
+/* Розміщення підказки справа від кнопки */
+.tooltip-right {
+  position: absolute;
+  position-anchor: --tooltip-anchor;
+  position-area: center end;
+}
+
+/* Розміщення підказки зліва від кнопки */
+.tooltip-left {
+  position: absolute;
+  position-anchor: --tooltip-anchor;
+  position-area: center start;
+}</code></pre>
+    </div>
+    
+    <div class="demo-container">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 80px; width: 100%;">
+        <div style="position: relative; margin-bottom: 30px;">
+          <button class="anchor anchor-example">Підказка внизу</button>
+          <div class="tooltip tooltip-bottom">Ця підказка внизу (position-area: end start)</div>
+        </div>
+        
+        <div style="position: relative; margin-top: 80px;">
+          <div class="tooltip tooltip-top">Ця підказка вгорі (position-area: start center)</div>
+          <button class="anchor anchor-example">Підказка вгорі</button>
+        </div>
+      </div>
+    </div>
+    
+    <h3>Додаткові приклади позиціонування</h3>
+    <p>Підказки можна розташовувати також зліва та справа від елемента:</p>
+    
+    <div class="demo-container">
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <div style="position: relative; display: flex; align-items: center;">
+          <div class="tooltip tooltip-left">Підказка зліва (position-area: center start)</div>
+          <button class="anchor anchor-example">Підказка зліва</button>
+        </div>
+        
+        <div style="position: relative; display: flex; align-items: center;">
+          <button class="anchor anchor-example">Підказка справа</button>
+          <div class="tooltip tooltip-right">Підказка справа (position-area: center end)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Цей розділ було видалено -->
+
+  <div class="example-section">
+    <h2>Комбінування з іншими властивостями</h2>
+    <p>Можна комбінувати anchor positioning з іншими CSS-властивостями для створення складних інтерфейсів:</p>
+    
+    <div class="code-block">
+      <div class="code-title">CSS:</div>
+      <pre><code>.tooltip {
+  position: absolute;
+  position-anchor: --tooltip-anchor;
+  position-area: end start;
+  position-try-fallbacks: flip;
+  
+  /* Додаємо анімацію появи */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}</code></pre>
+    </div>
+    
+    <div class="demo-container">
+      <div style="text-align: center;">
+        <button class="anchor anchor-example" id="animate-anchor">Підказка з анімацією</button>
+        <div class="tooltip tooltip-animated" id="animate-tooltip">Ця підказка з'являється з анімацією</div>
+        <button class="toggle-button" id="toggle-animation">Показати підказку</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-section">
+    <h2>Використання функцій anchor() та anchor-size()</h2>
+    <p>CSS також надає функції для доступу до позиції та розміру якоря:</p>
+    
+    <div class="code-block">
+      <div class="code-title">CSS:</div>
+      <pre><code>.dropdown {
+  position: absolute;
+  position-anchor: --button-anchor;
+  
+  /* Встановлюємо ширину рівною ширині якоря */
+  width: anchor-size(--button-anchor, width);
+  
+  /* Розміщуємо на 10px нижче якоря */
+  top: calc(anchor(--button-anchor, bottom) + 10px);
+  left: anchor(--button-anchor, left);
+}</code></pre>
+    </div>
+    
+    <div class="demo-container">
+      <div style="text-align: center;">
+        <button class="button-anchor" id="dropdown-button">Клікніть для меню</button>
+        <div class="dropdown" id="dropdown-menu">
+          <div>Опція 1</div>
+          <div>Опція 2</div>
+          <div>Опція 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <!-- Цей блок для інформації про fallbacks було видалено -->
+
+  <script>
+   
+
+    // Функціонал для прикладу з анімацією
+    const toggleAnimationButton = document.getElementById('toggle-animation');
+    const animateTooltip = document.getElementById('animate-tooltip');
+    
+    toggleAnimationButton.addEventListener('click', () => {
+      if (animateTooltip.classList.contains('show')) {
+        animateTooltip.classList.remove('show');
+        toggleAnimationButton.textContent = 'Показати підказку';
+      } else {
+        animateTooltip.classList.add('show');
+        toggleAnimationButton.textContent = 'Сховати підказку';
+      }
+    });
+
+    // Функціонал для випадаючого меню
+    const dropdownButton = document.getElementById('dropdown-button');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    
+    dropdownButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('show');
+    });
+    
+    document.addEventListener('click', (e) => {
+      if (e.target !== dropdownButton && dropdownMenu.classList.contains('show')) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
