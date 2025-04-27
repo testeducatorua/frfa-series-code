@@ -1,0 +1,103 @@
+/* [popover] {
+    padding: 1em 2em;
+    border-radius: 12px;
+    background: #222;
+    color: #fff;
+    box-shadow: 0 4px 24px #0005;
+    border: none;
+    font-size: 1.1em;
+    text-align: center;
+  } */
+/* 
+  #burger-menu[popover] {
+    margin-top: 0.5em;
+    min-width: 160px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 32px #0003;
+    border: 1px solid #e0e0e0;
+    padding: 0.5em 0;
+    animation: fadein 0.2s;
+    margin-left: 44px;
+    margin-top: 44px;
+  }
+  .menu-link {
+    display: block;
+    padding: 0.9em 1.5em;
+    text-decoration: none;
+    color: #222;
+    font-size: 1.08em;
+    transition: background 0.18s, color 0.18s;
+  }
+  .menu-link:hover {
+    background: #1976d2;
+    color: #fff;
+  }
+  #burger-anchor {
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.18s;
+  }
+  #burger-anchor:hover {
+    background: #f0f4fa;
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  } */
+
+  /* .transition-btn {
+    background: #1976d2;
+    color: #fff;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out 1s;
+  }
+  .transition-btn:hover {
+    background: #004ba0;
+  } */
+  /* .box {
+    width: 100px;
+    height: 100px;
+    background: #ff9800;
+    transition: width 0.3s, height 0.3s, background-color 0.5s;
+  }
+  .box:hover {
+    width: 140px;
+    height: 140px;
+    background: #e64a19;
+  } */
+
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 20px 0;
+    max-width: 400px;
+    display: block;
+  
+    opacity: 1;
+    transform: translateY(0);
+    /* transition: opacity 2s, transform 2s;  */
+    transition: opacity 2s, transform 2s, display 1s allow-discrete; 
+  }
+  
+  .card.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    display: none;
+  
+  }
