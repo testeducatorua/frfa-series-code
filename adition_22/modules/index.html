@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>ES Модулі</title>
+</head>
+<body>
+  <h1>Приклад використання ES модулів</h1>
+  
+  
+  <!-- Основний скрипт як модуль -->
+  <!-- <script type="module" src="app.js"></script> -->
+  <!-- <script src="app.js"></script> -->
+  
+  <!-- Можна також писати код модуля безпосередньо в HTML -->
+  <script type="module">
+    import { add, subtract } from './math.js';
+    console.log(add(2, 2)); // 4
+    console.log(subtract(5, 3)); // 2
+  </script>
+</body>
+</html>

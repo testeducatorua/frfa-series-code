@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <style>
+   
+@layer base, components, utilities;
+
+
+p {
+  color: purple;
+}
+
+@layer components {
+  p {
+    color: blue;
+    font-weight: bold;
+  }
+}
+
+
+
+@layer base {
+  body .box p {
+    color: rgb(211, 188, 9);
+    font-size: 2rem;
+  }
+}
+    </style> -->
+  
+<style>
+    /* Оголошення порядку шарів */
+@layer reset, base, layout, components, utilities;
+
+/* Шар reset для скидання стилів браузера */
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* Шар base для базових стилів */
+@layer base {
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 600;
+  }
+  
+  p {
+    margin-bottom: 1em;
+  }
+}
+
+/* Шар layout для структури сторінки */
+@layer layout {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #f5f5f5;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+}
+
+/* Шар components для компонентів інтерфейсу */
+@layer components {
+  .card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background: #1976d2;
+    color: white;
+  }
+  
+  .nav-link {
+    margin-left: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .nav-link:hover {
+    color: #1976d2;
+  }
+}
+
+/* Шар utilities для допоміжних класів */
+@layer utilities {
+  .text-center { text-align: center; }
+  .mt-1 { margin-top: 0.5rem; }
+  .mt-2 { margin-top: 1rem; }
+  .mb-1 { margin-bottom: 0.5rem; }
+  .mb-2 { margin-bottom: 1rem; }
+}
+
+/* Стилі поза шарами (найвищий пріоритет) */
+.title {
+  color: #1976d2; /* Цей стиль перевизначить будь-які стилі для .title в шарах */
+}
+
+
+@layer footer1, footer2;
+
+@layer footer1 {
+  p { 
+    color: blue !important; /* Вищий пріоритет, ніж звичайні стилі в components */
+  }
+}
+
+@layer footer2 {
+  p { 
+    color: red !important; /* Нижчий пріоритет, ніж !important в base */
+  }
+}
+</style>
+</head>
+  <body>
+    <!-- <div class="box">
+      <p>Текст з шарами стилів</p>
+    </div> -->
+
+    <!-- <header>
+        <h1 class="title">Мій сайт</h1>
+        <nav>
+          <a href="#" class="nav-link">Головна</a>
+          <a href="#" class="nav-link">Про нас</a>
+          <a href="#" class="nav-link">Контакти</a>
+        </nav>
+      </header>
+      <main>
+        <article class="card">
+          <h2>Стаття про CSS @layer</h2>
+          <p>CSS @layer дозволяє краще організувати ваші стилі.</p>
+          <button class="btn btn-primary">Читати далі</button>
+        </article>
+      </main> -->
+
+      <footer>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aut optio deserunt nobis facere, eius perspiciatis, voluptatum ad dolorum in dolores, pariatur eligendi? Porro itaque cumque nihil, odio laboriosam reiciendis.</p>
+      </footer>
+  </body>
+</html>
